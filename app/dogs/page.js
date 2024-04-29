@@ -1,5 +1,5 @@
 'use client'
-
+import Modal from '../components/Modal'
 import React, { useState, useEffect } from 'react'
 import { collection, addDoc, onSnapshot, query } from 'firebase/firestore'
 import {
@@ -27,7 +27,19 @@ const page = () => {
         weight: 0,
         description: ''
     })
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [selectedDog, setSelectedDog] = useState(null)
     const [selectedImage, setSelectedImage] = useState(null)
+
+    const openModal = (dog) => {
+        setSelectedDog(dog)
+        setIsModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+        setSelectedDog(null)
+    }
 
     const addDog = async (e) => {
         e.preventDefault()
@@ -118,11 +130,16 @@ const page = () => {
 
     return (
         <>
-            <h1 className="text-lg text-center">Add dog for adoption</h1>
-
+            <h1 className="text-4xl font-semibold text-center my-10 h-12">
+                Meet your new best friend!
+            </h1>
             <div className="container grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
                 {dogs.map((dog) => (
-                    <Card key={dog.id} className="dog-card">
+                    <Card
+                        key={dog.id}
+                        className="dog-card"
+                        onClick={() => openModal(dog)}
+                    >
                         <CardHeader>
                             <CardTitle>{dog.name}</CardTitle>
                         </CardHeader>
@@ -134,6 +151,11 @@ const page = () => {
                         </CardFooter>
                     </Card>
                 ))}
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    dog={selectedDog}
+                />
             </div>
         </>
     )
