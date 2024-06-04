@@ -220,16 +220,15 @@ const DogForm = ({ onDogAdded }) => {
                             })
                         }
                         value={newDog.description}
-                    />
+                    />{' '}
+                    {/* Submit button */}
+                    <button
+                        type="submit"
+                        className="mt-2 w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-indigo-500/50 transition duration-150 ease-in-out"
+                    >
+                        Submit
+                    </button>
                 </div>
-
-                {/* Submit button */}
-                <button
-                    type="submit"
-                    className="mt-2 w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-indigo-500/50 transition duration-150 ease-in-out"
-                >
-                    Submit
-                </button>
             </form>
         </div>
     )

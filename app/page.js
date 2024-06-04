@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Footer from './components/Footer'
+import Link from 'next/link'
 
 export default function Home() {
     return (
@@ -21,12 +22,12 @@ export default function Home() {
                         From Barking Lot to Happy Trot, Find Your Furever Friend
                         Here!
                     </h3>
-                    <a href="/dogs">
+                    <Link href="/dogs">
                         <button className="bg-slate-600 mt-10 lg:mt-20 text-white font-bold text-xl p-3 rounded-3xl">
                             {' '}
                             Find a Dog
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </section>
             <section className="flex items-center w-screen ">
