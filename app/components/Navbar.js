@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../lib/AuthContext'
 import { auth } from '../firebase' // Adjust the import path as necessary
 import { signOut } from 'firebase/auth'
+import Link from 'next/link'
 
 const Navbar = () => {
     const handleLogout = async () => {
@@ -16,23 +17,20 @@ const Navbar = () => {
     return (
         <div className="navbar  flex items-center justify-between flex-row border-b-2 shadow-xl bg-slate-100 p-5">
             <div className="logo-container">
-                <a
+                <Link
                     href="/"
                     className="logo font-poppins font-semibold text-2xl"
                 >
                     The Barkinglot!
-                </a>
+                </Link>
             </div>
             <div className="links-container flex gap-5">
-                <a href="/dogs" className="link font-poppins font-semibold">
+                <Link href="/dogs" className="link font-poppins font-semibold">
                     Dogs
-                </a>
-                <a href="/quiz" className="link font-poppins font-semibold">
+                </Link>
+                <Link href="/quiz" className="link font-poppins font-semibold">
                     Quiz
-                </a>
-                <a href="/contact" className="link font-poppins font-semibold">
-                    Contact
-                </a>
+                </Link>
 
                 {isLoggedIn && (
                     <a

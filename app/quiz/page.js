@@ -5,10 +5,9 @@ import Quiz from '../components/Quiz'
 
 const page = () => {
     return (
-        <div>
-            <h1>Quiz</h1>
+        <>
             <Quiz />
-        </div>
+        </>
     )
 }
 

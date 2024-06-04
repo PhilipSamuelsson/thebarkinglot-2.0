@@ -34,7 +34,6 @@ export default function Login() {
                     email: userCredential.user.email,
                     uid: userCredential.user.uid,
                     role: 'user'
-                    // ... other relevant fields
                 }
 
                 await setDoc(docRef, userData)

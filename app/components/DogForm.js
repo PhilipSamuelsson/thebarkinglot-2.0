@@ -33,16 +33,14 @@ const DogForm = ({ onDogAdded }) => {
 
         try {
             const storage = getStorage()
-            const storageRef = ref(storage, `images/${new Date().getTime()}`) // Using current timestamp for unique file names
+            const storageRef = ref(storage, `images/${new Date().getTime()}`)
 
             // Upload the file
             const uploadTask = uploadBytesResumable(storageRef, selectedImage)
 
             uploadTask.on(
                 'state_changed',
-                (snapshot) => {
-                    // Optional: Handle file upload progress
-                },
+                (snapshot) => {},
                 (error) => {
                     // Handle unsuccessful uploads
                     console.error('Upload error:', error)
