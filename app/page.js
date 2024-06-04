@@ -14,34 +14,20 @@ export default function Home() {
                 </div>
                 <div className="lg:w-2/4 w-screen flex h-screen bg-slate-100 flex-col items-center gap-4 justify-center">
                     <h2 className="font-bold p-10 text-3xl lg:text-6xl">
-                        {' '}
                         The Barkinglot
                     </h2>
                     <h3 className="font-semibold text-1xl lg:text-left text-center ">
-                        {' '}
                         From Barking Lot to Happy Trot, Find Your Furever Friend
                         Here!
                     </h3>
                     <Link href="/dogs">
                         <button className="bg-slate-600 mt-10 lg:mt-20 text-white font-bold text-xl p-3 rounded-3xl">
-                            {' '}
                             Find a Dog
                         </button>
                     </Link>
                 </div>
             </section>
             <section className="flex items-center w-screen ">
-                {/*           <div className="w-2/4 bg-slate-100 h-screen flex flex-col justify-center items-center px-11 gap-8">
-                    <h2 className="font-bold text-2xl"> Our Mission</h2>
-                    <p className="font-semibold text-1xl w-1/2">
-                        The Barking Lot is a non-profit organization that is
-                        dedicated to rescuing and rehoming dogs in need. We
-                        believe that every dog deserves a loving home and a
-                        second chance. Our mission is to provide a safe and
-                        loving environment for dogs in need and to find them
-                        their furever homes.
-                    </p>
-                </div> */}
                 <div className="bg-white flex flex-col justify-center items-center gap-8 mx-auto h-fit ">
                     <h2 className="font-bold text-4xl mt-5"> Our Vision</h2>
                     <p className="font-semibold text-1xl w-1/2 lg:w-1/3">
