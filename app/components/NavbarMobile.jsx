@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../lib/AuthContext'
-import { auth } from '../firebase' // Adjust the import path as necessary
+import { auth } from '../firebase'
 import { signOut } from 'firebase/auth'
+import Link from 'next/link'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false) // State to track menu open/close
@@ -15,6 +16,10 @@ const Navbar = () => {
     }
 
     const { isLoggedIn } = useContext(AuthContext) // Access the isLoggedIn state
+
+    const handleLinkClick = () => {
+        setIsMenuOpen(false)
+    }
 
     return (
         <>
@@ -51,13 +56,14 @@ const Navbar = () => {
             {isMenuOpen && (
                 <div className="menu-modal fixed top-0 left-0 w-screen h-screen bg-white z-50 flex flex-col">
                     <div className="menu-header flex justify-between items-center p-5 bg-slate-100 border-b-2 shadow-xl">
-                        <div className="logo-container ">
-                            <a
+                        <div className="logo-container">
+                            <Link
                                 href="/"
                                 className="logo font-poppins font-semibold text-2xl"
+                                onClick={handleLinkClick}
                             >
                                 The Barkingot!
-                            </a>
+                            </Link>
                         </div>
                         <div
                             className="close-button"
@@ -80,49 +86,50 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="links-container flex flex-col justify-center mt-2 items-center gap-7">
-                        <a
+                        <Link
                             href="/dogs"
                             className="text-3xl p-1 font-poppins font-semibold"
+                            onClick={handleLinkClick}
                         >
                             Dogs
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/quiz"
                             className="text-3xl p-1 font-poppins font-semibold"
+                            onClick={handleLinkClick}
                         >
                             Quiz
-                        </a>
-                        <a
-                            href="/contact"
-                            className="text-3xl p-1 font-poppins font-semibold"
-                        >
-                            Contact
-                        </a>
+                        </Link>
 
                         {isLoggedIn && (
-                            <a
+                            <Link
                                 href="/newStart"
                                 className="text-3xl p-1 font-poppins font-semibold"
+                                onClick={handleLinkClick}
                             >
                                 New start
-                            </a>
+                            </Link>
                         )}
                         {/* Conditionally render Log in or Log out based on isLoggedIn */}
                         {isLoggedIn ? (
-                            <a
+                            <Link
                                 href="/login"
                                 className="text-3xl p-1 font-poppins font-semibold"
-                                onClick={handleLogout}
+                                onClick={() => {
+                                    handleLogout()
+                                    handleLinkClick()
+                                }}
                             >
                                 Log out
-                            </a>
+                            </Link>
                         ) : (
-                            <a
+                            <Link
                                 href="/login"
                                 className="text-3xl p-1 font-poppins font-semibold"
+                                onClick={handleLinkClick}
                             >
                                 Log in
-                            </a>
+                            </Link>
                         )}
                     </div>
                 </div>
