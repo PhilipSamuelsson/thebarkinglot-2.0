@@ -33,29 +33,29 @@ const Navbar = () => {
                 </Link>
 
                 {isLoggedIn && (
-                    <a
+                    <Link
                         href="/newStart"
                         className="link font-poppins font-semibold"
                     >
                         New start
-                    </a>
+                    </Link>
                 )}
                 {/* Conditionally render Log in or Log out based on isLoggedIn */}
                 {isLoggedIn ? (
-                    <a
+                    <Link
                         href="/login"
                         className="link font-poppins font-semibold"
                         onClick={handleLogout}
                     >
                         Log out
-                    </a>
+                    </Link>
                 ) : (
-                    <a
+                    <Link
                         href="/login"
                         className="link font-poppins font-semibold"
                     >
                         Log in
-                    </a>
+                    </Link>
                 )}
             </div>
         </div>
